@@ -124,7 +124,19 @@ public T getBody() {
 ```
 
 That's all!
+When convert `MyExchance` object to json you will get the following:
+```json
+{"body":
+  {
+    "@modelClass":"com.gorkemgok.example.jackson.generic.MyBody",
+    "someOtherField":2,
+    "message":"Hello Jackson",
+  },
+  "someOtherField":5}
+```
+An extra json property `@modelClass` which is specified at `property` field of `@JsonTypeInfo` annotation is appeared. 
 
+When you deserialize json above you will get the correct body type.
 ```java
 ...
 MyExchange myDeserializedExchange = objectMapper.readValue(json, MyExchange.class);

@@ -151,3 +151,41 @@ Output:
 class com.gorkemgok.example.jackson.generic.MyBody
 class com.gorkemgok.example.jackson.generic.MyBody
 ```
+
+You can also use `TypeReference` class for type safe methods:
+```java
+...
+
+public static <T> MyExchange<T> deserializeMyExchange(String json) throws IOException {
+    MyExchange<T> myExchange = objectMapper.readValue(json, new TypeReference<T>(){});
+    return myExchange;
+}
+
+...
+
+MyExchange myDeserializedExchange3 = Main.<MyBody>deserializeMyExchange(json);
+System.out.println(myDeserializedExchange3.getBody().getClass());
+
+...
+```
+or
+```java
+...
+
+public static <T> MyExchange<T> deserializeMyExchange(String json, Class<T> clazz) throws IOException {
+    MyExchange<T> myExchange = objectMapper.readValue(json, new TypeReference<T>(){});
+    return myExchange;
+}
+
+...
+
+MyExchange myDeserializedExchange3 = Main.deserializeMyExchange(json, MyBody.class);
+System.out.println(myDeserializedExchange3.getBody().getClass());
+
+...
+```
+Output:
+```
+class com.gorkemgok.example.jackson.generic.MyBody
+class com.gorkemgok.example.jackson.generic.MyBody
+```

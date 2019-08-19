@@ -16,7 +16,7 @@ public class MyExchange<T> {
     public MyExchange() {
     }
 
-    @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, property = "@modelClass")
+    @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, property = "@bodyClass")
     public T getBody() {
         return body;
     }

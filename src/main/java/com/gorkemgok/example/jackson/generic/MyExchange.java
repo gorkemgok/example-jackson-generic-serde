@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 public class MyExchange<T> {
 
+    @JsonTypeInfo(include = JsonTypeInfo.As.WRAPPER_ARRAY, use = JsonTypeInfo.Id.CLASS, property = "@bodyClass")
     private T body;
 
     private int someOtherField;
@@ -16,7 +17,6 @@ public class MyExchange<T> {
     public MyExchange() {
     }
 
-    @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, property = "@bodyClass")
     public T getBody() {
         return body;
     }

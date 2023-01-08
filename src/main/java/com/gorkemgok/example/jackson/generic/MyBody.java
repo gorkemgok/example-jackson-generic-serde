@@ -2,24 +2,24 @@ package com.gorkemgok.example.jackson.generic;
 
 public class MyBody {
 
-    private int someOtherField;
+    private int someBodyField;
 
     private String message;
 
-    public MyBody(int someOtherField, String message) {
-        this.someOtherField = someOtherField;
+    public MyBody(int someBodyField, String message) {
+        this.someBodyField = someBodyField;
         this.message = message;
     }
 
     public MyBody() {
     }
 
-    public int getSomeOtherField() {
-        return someOtherField;
+    public int getSomeBodyField() {
+        return someBodyField;
     }
 
-    public void setSomeOtherField(int someOtherField) {
-        this.someOtherField = someOtherField;
+    public void setSomeBodyField(int someBodyField) {
+        this.someBodyField = someBodyField;
     }
 
     public String getMessage() {
